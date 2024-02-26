@@ -1,12 +1,14 @@
+import RouteComponent from "./components/routes/RouteComponent.jsx"
+
+
 import "./App.css"
 
 function App() {
 
-
     return (
 
         <div className="App">
-            Landing Page
+            <RouteComponent />
         </div>
     )
 }
