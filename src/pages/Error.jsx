@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Functional component named Home
 export default function Error() {
