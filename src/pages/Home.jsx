@@ -1,11 +1,17 @@
+import React from "react"
 import Home from "../../pages/Home.jsx"
 
 // Functional component named Home
-export default function Home() {
+function Home(props) {
     return (
         
-            <h1>Home Page</h1>
+            <header className="headerhome">
+                <h1> GF Munchies</h1>
+            </header>
+            
+        
     )
 
 }
 
+export default Home;
