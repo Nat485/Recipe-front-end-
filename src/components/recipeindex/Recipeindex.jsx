@@ -1,6 +1,7 @@
 import React from "react";
+import RecipeIndex from "../components/recipeIndex/RecipeIndex"
 import { useEffect, useState } from "react";
-import  Axios from "axios";
+import  axios from "axios"
 
 const API =import.meta.env.VITE_APP_API_URL
 
@@ -26,7 +27,16 @@ export default function RecipeIndex() {
 
     return (
         <div className="recipeIndex">
-            {/* Content of RecipeIndex component */}
+            {
+                allRecipes.map(recipeObj =>
+                    <div>
+                        <span>Recipe Name: {recipeObj.title}</span>
+                        <span>Creation Date: {recipeObj.recipe_type}</span>
+                        <span>Recipe Type: {recipeObj.recipe_type}</span>
+                        </div>
+                        )
+            }
+            
         </div>
     );
 };

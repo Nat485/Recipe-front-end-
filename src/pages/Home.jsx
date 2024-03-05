@@ -1,6 +1,7 @@
 import React from "react"
 import Home from "../../pages/Home.jsx"
 
+
 // Functional component named Home
 function Home(props) {
     return (

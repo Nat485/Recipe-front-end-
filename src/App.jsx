@@ -1,4 +1,5 @@
 import RouteComponent from './components/routes/RouteComponent.jsx'
+import NavBar from './components/navBar/NavBar.jsx'
 import './App.css'
 
 function App() {
@@ -6,7 +7,10 @@ function App() {
 
   return (
    <div className='App'> 
-   <RouteComponent/>
+   <NavBar />
+
+   <RouteComponent />
+
 
    </div>
   

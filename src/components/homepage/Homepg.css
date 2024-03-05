@@ -1,5 +1,22 @@
+.headerHome {
+  text-align: center;
+  background-color: bisque;
+  color: #0ae6455b;
+  padding: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
 
+img {
+  padding: 3px;
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  display: block;
+  margin: auto;
 
+}
 .body {
     margin: 0px;
     padding: 0px;
