@@ -5,6 +5,8 @@ import Edit from "../../pages/Edit.jsx"
 import Show from "../../pages/Show.jsx"
 import Error from "../../pages/Error.jsx"
 import Recipes from "../../pages/Recipes.jsx"
+import About from "../../pages/About.jsx"
+
 import { Navigate } from "react-router-dom"
 
 
@@ -14,7 +16,7 @@ import { Navigate } from "react-router-dom"
 // Navigate is used as a component that can be rendered nothing needs to happen in order for it to trigger it, it will just start
 
 // Functional component named RouteComponent
-export default function RouteComponent() {
+ function RouteComponent() {
     return (
      
             <Routes>
@@ -30,6 +32,8 @@ export default function RouteComponent() {
                 <Route path = "/recipes/:recipeID/edit" element = { <Edit />} />
 
                 <Route path = "/not-found" element = { <Error />} />
+                
+                <Route path = "/about" element={<About />} />
 
                 <Route path = "*" element = {<Navigate to ="/not-found"/>} />
 
@@ -43,3 +47,5 @@ export default function RouteComponent() {
     
     )
 }
+
+export default RouteComponent;

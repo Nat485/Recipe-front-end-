@@ -1,10 +1,12 @@
 
 
-// Functional component named Home
-export default function New() {
+
+ function New() {
     return (
      
             <h1>New Page</h1>
       
     );
 }
+
+export default New

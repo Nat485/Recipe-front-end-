@@ -1,10 +1,12 @@
 
 
-// Functional component named Home
-export default function Error() {
+
+function Error() {
     return (
       
             <h1>Error Page</h1>
       
     );
 }
+
+export default Error
