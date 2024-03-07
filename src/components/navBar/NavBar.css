@@ -5,20 +5,14 @@
     align-items: center;
     height: 40px;
     background-color: aliceblue;
-    position: fixed;
     left: 0;
-    right: 0;
+    top: 0;
 }
 
 .navBar a {
     font-size: 20px;
     color: chartreuse;
     font-weight: 600;
-}
-
-.navBar :hover {
-    color: black;
-
 }
 
 
