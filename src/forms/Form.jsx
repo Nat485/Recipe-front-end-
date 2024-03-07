@@ -1,83 +1,71 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import './Form.css'
+import './Form.css';
 
-const API = import.meta.env.VITE_APP_API_URL
+const API = import.meta.env.VITE_APP_API_URL;
 
 function Form() {
     const [form, setForm] = useState({
-    recipe_name:"",
-    creation_date:"",
-    vegan: false,
-    recipe_type:""
-
-});
-    
-const nav = useNavigate();
-
-const { id } = useParams()
-
-useEffect(() => {
-    if(id) {
-        axios.get('${API}/bourbons/${id}')
-            .then(res => setForm(res.data))
-            .catch(err => console.log(err))
-
-    }
-}
-)
-
-function handleTextInput(event) {
-    const id = event.target.id;
-    const value = event.target.value
-}
-    //setForm({form, [id] : value})
-
-    setForm((currentState) => {
-    
-        return {
-            ...currentState, 
-            [id]: value,
-        };
+        recipe_name: "",
+        creation_date: "",
+        vegan: false,
+        recipe_type: ""
     });
-}}
 
-function newRecipeAdded(event) {
-    event.preventDefault()
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-    axios.post(`${API}/recipes`, form)
-        .then(res => Navigate(`/recipes/${res.id}`))
-        .catch(error => console.log(error))
-}
+    useEffect(() => {
+        if (id) {
+            axios.get(`${API}/recipes/${id}`)
+                .then(res => setForm(res.data))
+                .catch(err => console.log(err));
+        }
+    }, [id, API]);
 
-function submitEditedForm(event) {
-    event.preventDefault()
+    function handleTextInput(event) {
+        const id = event.target.id;
+        const value = event.target.value;
 
-    axios.put(`${API}recipe/${id}`, form)
-        .then(res => navigate(`/bourbons/${res.id}`))
-        .catch(error => console.log(error))
-}
+        setForm((currentState) => ({
+            ...currentState,
+            [id]: value,
+        }));
+    }
 
-return (
-    <form className="form">
+    function newRecipeAdded(event) {
+        event.preventDefault();
 
-        {     }   //recipe_name
-        <label htmlFor=' recipe_name'>
-            <span>Recipe Name:</span>
-            <input
-            id='recipe_name'
-            type='text'
-            value={form.recipe_name}
-            required
-            onChange={(e) => { handleTextInput(e)}
-            />
+        axios.post(`${API}/recipes`, form)
+            .then(res => navigate(`/recipes/${res.data.id}`))
+            .catch(error => console.log(error));
+    }
+
+    function submitEditedForm(event) {
+        event.preventDefault();
+
+        axios.put(`${API}/recipe/${id}`, form)
+            .then(res => navigate(`/recipe/${res.data.id}`))
+            .catch(error => console.log(error));
+    }
+
+    return (
+        <form className="form">
+            <label htmlFor='recipe_name'>
+                <span>Recipe Name:</span>
+                <input
+                    id='recipe_name'
+                    type='text'
+                    value={form.recipe_name}
+                    required
+                    onChange={(e) => handleTextInput(e)}
+                />
             </label>
-            <label htmlFor=" "
-            </input>
-    </form>
-)
+            {/* Add other input fields here */}
+            <button type="submit" onClick={id ? submitEditedForm : newRecipeAdded}>Submit</button>
+        </form>
+    );
+}
 
-
-
-export function Form
+export default Form;
