@@ -1,4 +1,4 @@
-import Form from "../components/form/Form"
+import Form from "../components/forms/Form.jsx"
 
 function Edit() {
     return (
