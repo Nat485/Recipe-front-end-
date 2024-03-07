@@ -28,13 +28,18 @@ function Form() {
         const id = event.target.id;
         const value = event.target.value;
 
+        //for the boolean like vegan
+        if (event.target.type === 'checkbox') {
+            value = event.target.checked;
+        }
+        
         setForm((currentState) => ({
             ...currentState,
             [id]: value,
         }));
     }
 
-    function newRecipeAdded(event) {
+    function newRecipe(event) {
         event.preventDefault();
 
         axios.post(`${API}/recipes`, form)
@@ -52,6 +57,8 @@ function Form() {
 
     return (
         <form className="form">
+              
+              {/* recipe_name */}
             <label htmlFor='recipe_name'>
                 <span>Recipe Name:</span>
                 <input
@@ -62,8 +69,44 @@ function Form() {
                     onChange={(e) => handleTextInput(e)}
                 />
             </label>
-            {/* Add other input fields here */}
-            <button type="submit" onClick={id ? submitEditedForm : newRecipeAdded}>Submit</button>
+          
+           {/* creation_date */}
+           <label htmlFor='creation_date'>
+                <span>Creation Date:</span>
+                <input
+                    id='creation_date'
+                    type='int'
+                    value={form.creation_date}
+                    required
+                    onChange={(e) => handleTextInput(e)}
+                />
+            </label>
+
+             {/* vegan */}
+           <label htmlFor='vegan'>
+                <span>Vegan:</span>
+                <input
+                    id='vegan'
+                    type='boolean'
+                    value={form.vegan}
+                    required
+                    onChange={(e) => handleTextInput(e)}
+                />
+            </label>
+
+            {/* recipe type */}
+           <label htmlFor='recipe_type'>
+                <span>Recipe Type:</span>
+                <input
+                    id='recipe_type'
+                    type='text'
+                    value={form.recipe_type}
+                    required
+                    onChange={(e) => handleTextInput(e)}
+                />
+            </label>
+            
+           
         </form>
     );
 }

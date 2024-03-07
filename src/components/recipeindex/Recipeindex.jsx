@@ -5,9 +5,8 @@ import  axios from "axios"
 
 const API =import.meta.env.VITE_APP_API_URL
 
-export default function RecipeIndex() {
-   const [allRecipes, setAllRecipes] = useState
-   ([])
+function RecipeIndex() {
+   const [allRecipes, setAllRecipes] = useState ([])
    
    // Function to fetch all recipes
     function getAllRecipes() {
@@ -26,17 +25,16 @@ export default function RecipeIndex() {
     }, []); // Passing an empty dependency array ensures that this effect runs only once after the component mounts
 
     return (
-        <div className="recipeIndex">
+        <>
+
+      <div className="recipeIndex">
+        <h2>Check All Recipes </h2>
             {
-                allRecipes.map(recipeObj =>
-                    <div>
-                        <span>Recipe Name: {recipeObj.title}</span>
-                        <span>Creation Date: {recipeObj.recipe_type}</span>
-                        <span>Recipe Type: {recipeObj.recipe_type}</span>
-                        </div>
-                        )
-            }
-            
-        </div>
-    );
-};
+                allRecipes.map(recipeObj => recipeObj.recipe_name)
+            }        
+
+</div>
+</>
+)
+ }
+export default RecipeIndex
