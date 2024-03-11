@@ -1,6 +1,6 @@
 .headerHome {
   text-align: center;
-  background-color: bisque;
+  background-color: ghostwhite;
   color: #0ae6455b;
   padding: 15px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -50,7 +50,7 @@ img {
   }
 
     .footer {
-    background-color: #F1F1F1;
+    background-color: ghostwhite;
     text-align: center;
     padding: 10px;
   }

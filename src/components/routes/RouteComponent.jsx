@@ -6,6 +6,7 @@ import Show from "../../pages/Show.jsx"
 import Error from "../../pages/Error.jsx"
 import Recipes from "../../pages/Recipes.jsx"
 import About from "../../pages/About.jsx"
+import forms from "../../forms/Form.jsx"
 
 import { Navigate } from "react-router-dom"
 
@@ -34,6 +35,8 @@ import { Navigate } from "react-router-dom"
                 <Route path = "/not-found" element = { <Error />} />
                 
                 <Route path = "/about" element={<About />} />
+
+              
 
                 <Route path = "*" element = {<Navigate to ="/not-found"/>} />
 
