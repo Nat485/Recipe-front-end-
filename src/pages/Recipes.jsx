@@ -1,11 +1,16 @@
 
 
+import RecipeIndex from "../components/recipeindex/Recipeindex";
+ 
 
- function Recipes() {
+function Recipes() {
     return (
-       
+       <div>
             <h1>Recipes Page</h1>
        
+       <RecipeIndex/>
+       </div>
+ 
     );
 }
 

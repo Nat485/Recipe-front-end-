@@ -1,10 +1,10 @@
-
+import Form from "../forms/Form";
 
 
  function New() {
     return (
      
-            <h1>New Page</h1>
+        <Form/>
       
     );
 }

@@ -1,14 +1,14 @@
-import { Routes,Route } from "react-router-dom"
-import Home from "../../pages/Home.jsx"
-import New from "../../pages/New.jsx"
-import Edit from "../../pages/Edit.jsx"
-import Show from "../../pages/Show.jsx"
-import Error from "../../pages/Error.jsx"
-import Recipes from "../../pages/Recipes.jsx"
-import About from "../../pages/About.jsx"
-import forms from "../../forms/Form.jsx"
+import { Routes,Route } from "react-router-dom";
+import Home from "../../pages/Home.jsx";
+import New from "../../pages/New.jsx";
+import Edit from "../../pages/Edit.jsx";
+import Show from "../../pages/Show.jsx";
+import Error from "../../pages/Error.jsx";
+import Recipes from "../../pages/Recipes.jsx";
+import About from "../../pages/About.jsx";
+import Form from "../../forms/Form.jsx";
 
-import { Navigate } from "react-router-dom"
+import { Navigate } from "react-router-dom";
 
 
 

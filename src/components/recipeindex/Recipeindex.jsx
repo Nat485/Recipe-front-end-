@@ -1,5 +1,4 @@
 import React from "react";
-import RecipeIndex from "../components/recipeIndex/RecipeIndex"
 import { useEffect, useState } from "react";
 import  axios from "axios"
 
@@ -10,12 +9,13 @@ function RecipeIndex() {
    
    // Function to fetch all recipes
     function getAllRecipes() {
-        axios.get(`${API}/recipes`)
+        axios.get("http://localhost:7777/gfrecipes")
             .then(res => {
+               console.log(res.data)
                 setAllRecipes(res.data); // Assuming the response contains data in an array format
             })
             .catch(error => {
-                console.error('Error fetching recipes:', error);
+                console.error('Error fetching recipes:', error.msg);
             });
     }
 
@@ -30,7 +30,11 @@ function RecipeIndex() {
       <div className="recipeIndex">
         <h2>Check All Recipes </h2>
             {
-                allRecipes.map(recipeObj => recipeObj.recipe_name)
+                allRecipes.map(recipeObj => {
+                    return<p>{recipeObj.recipe_name}</p>
+                } 
+                )
+
             }        
 
 </div>

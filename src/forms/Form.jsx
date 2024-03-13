@@ -1,6 +1,7 @@
+import React from "react";
+import axios from 'axios';
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from 'axios';
 import './Form.css';
 
 const API = import.meta.env.VITE_APP_API_URL;
@@ -26,13 +27,14 @@ function Form() {
 
     function handleTextInput(event) {
         const id = event.target.id;
-        const value = event.target.value;
+        let value = event.target.value;
 
         //for the boolean like vegan
         if (event.target.type === 'checkbox') {
-            value = event.target.checked;
+        value = event.target.checked; //Handle boolean value for a checkbox
         }
-        
+        console.log(value)
+
         setForm((currentState) => ({
             ...currentState,
             [id]: value,
@@ -87,7 +89,7 @@ function Form() {
                 <span>Vegan:</span>
                 <input
                     id='vegan'
-                    type='boolean'
+                    type='checkbox'
                     value={form.vegan}
                     required
                     onChange={(e) => handleTextInput(e)}
@@ -105,10 +107,12 @@ function Form() {
                     onChange={(e) => handleTextInput(e)}
                 />
             </label>
-            
-           
-        </form>
-    );
-}
+       
+    
+    <button id="showFormButton">Show Form</button>
+    </form>
+     );
+ }
+ 
 
 export default Form;
